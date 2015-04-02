@@ -110,9 +110,9 @@ class NewItemTest(TestCase):
         other_list = List.objects.create()
         correct_list = List.objects.create()
         self.client.post(
-             '/lists/%d/add_item' % (correct_list.id,),
-             data={'item_text': 'A new item for an existing list'}
-         )
+            '/lists/%d/add_item' % (correct_list.id,),
+            data={'item_text': 'A new item for an existing list'}
+        )
 
         self.assertEqual(Item.objects.count(), 1)
         new_item = Item.objects.first()
